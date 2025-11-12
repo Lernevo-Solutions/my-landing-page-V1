@@ -1,0 +1,723 @@
+/* ========== GLOBAL STYLES ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f8fbff;
+  color: #1e293b;
+  overflow-x: hidden;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #2563eb;
+  color: #fff;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #e2e8f0;
+  color: #0f172a;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+/* ========== NAVBAR ========== */
+/* Navbar base */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 80px;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  position: fixed;
+  width: 100px;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+
+/* ---------- LOGO SECTION ---------- */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-image {
+  height: 45px; /* make smaller if it’s too big */
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-text h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0d6efd;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.logo-text p {
+  font-size: 18px;
+  font-weight: 700;
+  color: #555;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+
+/* Navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+/* Mobile Menu Button */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  background: linear-gradient(rgba(0, 0, 60, 0.4), rgba(0, 0, 60, 0.4)),
+    url("assets/hero.png")
+      center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 160px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 1s ease-in;
+  margin: 100px;
+}
+.hero {
+  margin-top: 70px; /* prevents overlap with fixed navbar */
+}
+
+
+.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 42, 150, 0.6), rgba(0, 42, 150, 0.3));
+  z-index: 2;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+/* ========== SECTIONS ========== */
+section {
+  padding: 80px 60px;
+  text-align: center;
+  animation: fadeInUp 1.2s ease;
+}
+
+section h2 {
+  font-size: 2.2rem;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+section p {
+  color: #475569;
+  margin-bottom: 30px;
+}
+
+/* Cards Layout */
+.service-grid,
+.about-grid,
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.service-card,
+.about-card,
+.testimonial-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover,
+.about-card:hover,
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Testimonials */
+.testimonial-card p {
+  font-style: italic;
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+.testimonial-card h4 {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* ========== FAQ ========== */
+.faq {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.faq-item {
+  background: white;
+  padding: 18px;
+  margin: 12px auto;
+  width: 80%;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.faq-item:hover {
+  background: #e0f2fe;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: #f1f5f9;
+  padding: 60px 70px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.footer-container h4 {
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.footer-container p,
+.footer-container a {
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.footer-container a:hover {
+  color: #2563eb;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* ========== SIGNUP PAGE ========== */
+.signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #93c5fd, #e0f2fe);
+}
+
+.signup-container {
+  background: white;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeInUp 1s ease;
+}
+
+.signup-container input {
+  display: block;
+  width: 100%;
+  margin: 15px 0;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.signup-container button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ========== FUTURE PAGE ========== */
+.future {
+  min-height: 100vh;
+  padding: 100px 70px;
+  text-align: center;
+}
+
+.future h1 {
+  font-size: 2.5rem;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+}
+
+.future p {
+  color: #475569;
+  margin-bottom: 50px;
+  font-size: 1.1rem;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 15px 30px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  section {
+    padding: 60px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 60%;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar {
+    padding: 15px 25px;
+  }
+
+  .hero {
+    padding: 120px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .service-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 50px 20px;
+  }
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #e0f2fe;
+}
+
+.signup-container {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.signup-container input {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+/* ========== IMAGES & ICONS ========== */
+
+.logo-img {
+  height: 35px;
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.service-icon,
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.about-text {
+  flex: 1 1 50%;
+  text-align: left;
+}
+
+.about-image {
+  flex: 1 1 40%;
+  text-align: center;
+}
+
+.about-image img {
+  width: 60%;
+  max-width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Testimonials */
+.testimonial-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.user-role {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .about-text {
+    text-align: center;
+  }
+}
+/* =========================
+   NAVBAR STYLING
+========================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ---------- LOGO SECTION ---------- */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-image {
+  height: 40px; /* adjust for your logo size */
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-text h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0d6efd;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.logo-text p {
+  font-size: 10px;
+  color: #777;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+/* ---------- NAV LINKS (CENTER) ---------- */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #0d6efd;
+}
+
+/* ---------- BUTTONS (RIGHT SIDE) ---------- */
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn.login {
+  background: transparent;
+  border: 1px solid #0d6efd;
+  color: #0d6efd;
+}
+
+.btn.primary {
+  background: #0d6efd;
+  color: white;
+}
+
+/* ---------- RESPONSIVE ADJUSTMENTS ---------- */
+@media (max-width: 900px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 30px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-buttons {
+    justify-content: center;
+  }
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  background-image: url("assets/hero.png"); /* change this to your hero image name */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* full screen height */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  margin-top: 70px;
+}
+
+/* Optional dark overlay for better text visibility */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* 0.3 = slight dark overlay */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #f1f1f1;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn.primary {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.btn.secondary {
+  background-color: white;
+  color: #0d6efd;
+  border: 1px solid #0d6efd;
+}
+
